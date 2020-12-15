@@ -1,4 +1,4 @@
-console.log("Script_question running");
+console.log("Script running");
 console.log(localStorage);
 
 //Déclaration des prototype pour recupérer les attributs des personnes dans la mémoire

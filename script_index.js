@@ -1,10 +1,15 @@
-console.log("Script_accueil running");
+console.log("Script running");
+
+// Supprimer si il existe dans le stockage le numéro_quiz
+
+localStorage.removeItem("numero_quiz");
 console.log(localStorage);
 
 // Définit le mode d'affichage lors du changement de page
-let mode = localStorage.getItem("mode")
+
+let mode = localStorage.getItem("mode");
 if (! mode){
-    localStorage.setItem("mode","0")
+    localStorage.setItem("mode","0");
 }else if(mode == 0 || mode == 1) {
     $(co).css('display', 'block');
     $(deco).css('display', 'none');
@@ -34,7 +39,7 @@ Object.prototype.nomComplet = function() {
 
 // Permet d'afficher les scores en les prenant dans la mémoire
 
-for(let i = 0; i < localStorage.length - 1; i++ ){
+for(let i = 1; i < localStorage.length; i++ ){
     personne = localStorage.keyindex(i);
     liste_personne.push([personne.nomComplet(), personne.score]);
     Ajouter_personne();
@@ -52,7 +57,7 @@ function Ajouter_personne() {
     const removeCell = document.createElement("TD");
     const removeButton = document.createElement("BUTTON");
     removeButton.value = liste_personne.length-1;
-    removeButton.innerText = "remove";
+    removeButton.innerText = "Masquer";
     removeButton.addEventListener("click", Remove);
     removeCell.appendChild(removeButton);
     personneRow.appendChild(fullnameCell);
@@ -62,7 +67,7 @@ function Ajouter_personne() {
 }
 function Remove(mouseEvent) {
     mouseEvent.target.parentElement.parentElement.remove();
-    liste_personne.splice(liste_personne.indexOf(liste_personne[mouseEvent.target.value]), 1)
+    liste_personne.splice(liste_personne.indexOf(liste_personne[mouseEvent.target.value]), 1);
 }
 
 // Permet de changer de page et d'afficher les bonnes choses
@@ -81,8 +86,8 @@ function changer_page_in(){
 
 function supprimer_compte(){
     if(confirm("Etes vous sûrs de vouloir supprimer votre compte ?")){
-        localStorage.setItem("mode", 0)
-        localStorage.removeItem(localStorage.getItem("mode"))
+        localStorage.removeItem(localStorage.getItem("mode"));
+        localStorage.setItem("mode", 0);
         $(co).css('display', 'block');
         $(deco).css('display', 'none');
     }
@@ -90,7 +95,7 @@ function supprimer_compte(){
 
 function deconnexion(){
     if(confirm("Etes vous sûrs de vouloir vous déconnecter ?")){
-        localStorage.setItem("mode", 0)
+        localStorage.setItem("mode", 0);
         $(co).css('display', 'block');
         $(deco).css('display', 'none');
     }
@@ -99,10 +104,21 @@ function deconnexion(){
 // Permet d'accéder au QUIZ
 
 function quiz1(){
-    mode = localStorage.getItem("mode")
+    mode = localStorage.getItem("mode");
     if(mode != 0 && mode != 1){
+        localStorage.setItem("numero_quiz", 0);
         window.location='question.html';
     }else{
-        alert("Vous devez être connecté pour lancer un quiz ! Pas de panique l'inscription est gratuite ! ;)")
+        alert("Vous devez être connecté pour lancer un quiz ! Pas de panique l'inscription est gratuite ! ;)");
+    }
+}
+
+function quiz2(){
+    mode = localStorage.getItem("mode");
+    if(mode != 0 && mode != 1){
+        localStorage.setItem("numero_quiz", 1);
+        window.location='question.html';
+    }else{
+        alert("Vous devez être connecté pour lancer un quiz ! Pas de panique l'inscription est gratuite ! ;)");
     }
 }
