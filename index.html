@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Importation de jQuary pour cacher et afficher sur une même page-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script defer src="./script_index.js"></script>
+    <title>Homepage</title>
+    <link rel ="stylesheet" type="text/css" href="BE.css">
+</head>
+<body>
+<header>
+    MAXI QUIZ : le quiz des super sportifs
+    <div id = "co">
+        <button id="login" onclick="changer_page_co()">Se connecter</button>
+        <button id="register" onclick="changer_page_in()">S'enregistrer</button>
+    </div>
+    <!-- Création de la section pour supprimer son compte ou se déconnecter -->
+    <div id = "deco" style = "display : none">
+        <button id = "supprimer_compte" onclick="supprimer_compte()">Supprimer mon compte</button>
+        <button onclick="deconnexion()">Se déconnecter</button>
+    </div>
+</header>
+<hr/>
+<nav>
+    <div>
+        <table border = "1" id = "table_personne">
+            <tr>
+                <th colspan="2">Score Board</th>
+            </tr>
+            <tr>
+                <th>Prénom Nom</th>
+                <th>Score</th>
+            </tr>
+        </table>
+    </div>
+</nav>
+<main>
+    <div class="titre">
+        Découvrez les meilleurs quiz sur votre pratique pref
+    </div>
+    <br>
+    <br>
+    <br>
+    <section>
+        <article onclick="quiz1()">
+            <div>
+                Quiz n°1 :
+            </div>
+            <br>
+            <img src="BE/img1.jpg" alt="img1">
+            <br>
+            <br>
+            <div>
+                Niveau débutant
+            </div>
+        </article>
+        <br>
+        <br>
+        <br>
+
+        <article onclick="quiz2()">
+            <div>
+                Quiz n°2 :
+            </div>
+            <br>
+            <img src="BE/img2.jpg" alt="img2">
+            <br>
+            <br>
+            <div>
+                Niveau pro
+            </div>
+        </article>
+    </section>
+</main>
+</body>
+</html>
