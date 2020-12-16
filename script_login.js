@@ -122,7 +122,7 @@ function verification_login(){
         alert("Merci de remplir tous les champs !");
     }else{
         let valide = -1;
-        for(let i = 1; i < localStorage.length; i++ ){
+        for(let i = 0; i < localStorage.length; i++ ){
             if (localStorage.key(i) != "mode"){
                 if (pseudo == localStorage.key(i) && mdp == localStorage.keyindex(i).mdp){
                     valide = i;
