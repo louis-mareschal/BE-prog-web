@@ -157,7 +157,7 @@ function connecter(personne){
     $(register).css('display', 'block');
     $(login).css('display', 'none');
     localStorage.setItem("mode",personne.pseudo);
-    window.location='/';
+    window.location='index.html';
 }
 
 // Permet de générer la table
