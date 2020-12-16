@@ -53,7 +53,7 @@ function valider_question(){
         afficher_question_suivante();
     }else{
         alert("Fin du quiz !");
-        window.location='/';
+        window.location='index.html';
     }
 }
 
